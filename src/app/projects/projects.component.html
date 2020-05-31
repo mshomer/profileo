@@ -1,0 +1,64 @@
+<section
+  class="pt-3"
+  id="projects"
+  [@fadeInOut]="triggerAnimation ? 'show' : 'hide'"
+>
+  <div class="container px-md-0">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">My Project</h2>
+      </div>
+    </div>
+    <div class="row justify-content-start">
+      <div class="col-md-4 p-1" *ngFor="let project of projects">
+        <div class="card" [class.show]="card.show" #card>
+          <div class="card-front">
+            <img
+              class="w-100"
+              #img
+              [class.animation]="img.height > card.clientHeight"
+              [src]="project.imageUrl"
+            />
+          </div>
+          <div class="card-back">
+            <h3>{{ project.name }}</h3>
+            <p class="small">{{ project.description }}</p>
+
+            <div class="d-flex justify-content-center">
+              <a
+                class="mr-3"
+                target="_blank"
+                *ngIf="project.link"
+                [href]="project.link"
+                ><span class="fa fa-external-link-square-alt fs-20"></span
+              ></a>
+              <a
+                class="mr-3"
+                *ngIf="project.github"
+                target="_blank"
+                [href]="project.github"
+                ><span class="fab fa-github fs-20"></span
+              ></a>
+              <a
+                class="mr-3"
+                *ngIf="project.download"
+                target="_blank"
+                [href]="project.download"
+                ><span class="fa fa-download fs-20"></span
+              ></a>
+              <a *ngIf="project.video" target="_blank" [href]="project.video"
+                ><span class="fa fa-video fs-20"></span
+              ></a>
+            </div>
+          </div>
+
+          <a class="go-corner" (click)="card.show = !card.show">
+            <div class="go-arrow">
+              →
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

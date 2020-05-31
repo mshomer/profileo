@@ -1,0 +1,89 @@
+<div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <h4>Media ({{ projects.length }})</h4>
+    </div>
+    <div class="navigation">
+      <a
+        class="mr-3"
+        [class.disabled]="currentPage === 0"
+        (click)="currentPage !== 0 && (currentPage = currentPage - 2)"
+        ><span class="fa fa-angle-left mr-2"></span>Previues</a
+      >
+      <a
+        [class.disabled]="currentPage === projects.length - 2"
+        (click)="
+          currentPage < projects.length - 2 && (currentPage = currentPage + 2)
+        "
+        >Next<span class="fa fa-angle-right ml-2"></span
+      ></a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div
+      class="card"
+      *ngFor="let project of projects | slice: currentPage:currentPage + 2"
+    >
+      <input
+        type="checkbox"
+        id="card-{{ project.name }}"
+        class="more"
+        aria-hidden="true"
+      />
+      <div class="content">
+        <div class="front">
+          <img [src]="project.imageUrl" />
+          <div class="inner">
+            <h2>{{ project.name }}</h2>
+            <label class="button" for="card-{{ project.name }}">
+              Details
+            </label>
+          </div>
+        </div>
+        <div class="back">
+          <div class="inner">
+            <div class="d-flex justify-content-between">
+              <div class="location">{{ project.name }}</div>
+              <a [href]="project.link" target="_blank"
+                ><span class="{{ project.icon }}"></span>
+              </a>
+            </div>
+            <div class="d-flex justify-content-between my-2">
+              <div class="info">
+                <div class="icon">
+                  <i class="fab fa-css3"></i>
+                  <span>CSS</span>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon">
+                  <i class="fab fa-html5"></i>
+                  <span>HTML5</span>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon">
+                  <i class="fab fa-angular"></i>
+                  <span>Angular 8</span>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon">
+                  <i class="fab fa-bootstrap"></i>
+                  <span>Bootstrap</span>
+                </div>
+              </div>
+            </div>
+            <div class="description">
+              <p>{{ project.description }}</p>
+            </div>
+            <label class="button return" for="card-{{ project.name }}">
+              <i class="fas fa-arrow-left"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

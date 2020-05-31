@@ -1,0 +1,85 @@
+<svg
+  class="position-absolute"
+  preserveAspectRatio="none"
+  viewBox="0 0 100 102"
+  height="75"
+  width="100%"
+>
+  <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
+</svg>
+<footer [@fadeInOut]="triggerAnimation ? 'show' : 'hide'">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md">
+        <div class="mb-4">
+          <h2>Thanks!</h2>
+          <p>
+            I would love to work with you And show off my creativity, the great
+            motivation And the love of the field
+          </p>
+          <div class="mt-5">
+            <a target="_blank" href="https://www.facebook.com/matan.shomer"
+              ><span class="fab fa-facebook-f"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="mb-4 ml-md-4">
+          <h2>Links</h2>
+          <ul>
+            <li *ngFor="let item of navItems">
+              <a (click)="scrollToElement(item.element)"
+                ><span class="fa fa-long-arrow-alt-right mr-2"></span
+                >{{ item.name }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="mb-4">
+          <h2>Projects</h2>
+          <ul>
+            <li *ngFor="let project of projects">
+              <a [href]="project.link" target="_blank"
+                ><span class="fa fa-long-arrow-alt-right mr-2"></span
+                >{{ project.name }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="mb-4">
+          <h2>Find me</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li>
+                <a
+                  href="https://maps.google.com/maps?q=Kiryat+Ono"
+                  target="_blank"
+                >
+                  <span class="fa fa-map-marker"></span
+                  ><span class="text">Kiryat Ono</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:0506960747"
+                  ><span class="fa fa-phone"></span
+                  ><span class="text">050-6960747</span></a
+                >
+              </li>
+              <li>
+                <a href="mailto:mshomer@gmail.com"
+                  ><span class="fa fa-envelope"></span
+                  ><span class="text">mshomer@gmail.com</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

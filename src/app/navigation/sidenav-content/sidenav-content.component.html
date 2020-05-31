@@ -1,0 +1,17 @@
+<mat-toolbar class="d-flex justify-content-between">
+  <div>
+    <a class="navbar-brand" href="index.html"><span>M</span>atan</a>
+  </div>
+  <div class="d-none d-md-flex">
+    <ul fxLayout class="navigation-items">
+      <li *ngFor="let item of items">
+        <a (click)="scrollToElement(item.element)">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="d-flex d-md-none">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,41 @@
+<section id="about">
+  <div class="container">
+    <div class="row d-flex no-gutters">
+      <div class="col-md-6 col-lg-6 d-md-flex d-none">
+        <img class="w-100 h-100" src="assets\profile.jpg" />
+      </div>
+      <div
+        class="col-md-6 col-lg-6 pl-md-5 py-5"
+        [@fadeInOut]="triggerAnimation ? 'show' : 'hide'"
+      >
+        <div class="row justify-content-start pb-3">
+          <div class="col-md-12 content-section">
+            <h2 class="mb-4">About Me</h2>
+            <ul class="about-info mt-4 px-md-0 px-2">
+              <li class="d-flex">
+                <span>Name:</span> <span>Matan Shomer</span>
+              </li>
+              <li class="d-flex">
+                <span>Date of birth:</span> <span>Jun 2, 1987</span>
+              </li>
+              <li class="d-flex">
+                <span>Address:</span> <span>Kiryat Ono</span>
+              </li>
+              <li class="d-flex">
+                <span>Email:</span> <span>mshomer@gmail.com</span>
+              </li>
+              <li class="d-flex">
+                <span>Phone: </span> <span>050-6960747</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <a href="assets\MatanShomerCV.docx" class="btn btn-primary py-3 px-3"
+            >Download CV</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

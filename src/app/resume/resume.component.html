@@ -1,0 +1,111 @@
+<section id="resume">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <nav>
+          <ul>
+            <li><a (click)="scrollToElement(page1)">Education</a></li>
+            <li><a (click)="scrollToElement(page2)">Experience</a></li>
+            <li><a (click)="scrollToElement(page3)">Skills</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-9" [@fadeInOut]="triggerAnimation ? 'show' : 'hide'">
+        <div #page1 class="page">
+          <h2 class="heading">Education</h2>
+          <ng-container *ngFor="let education of educationList">
+            <ng-container
+              *ngTemplateOutlet="
+                resumeTemplate;
+                context: { item: education, icon: 'fa fa-school' }
+              "
+            ></ng-container>
+          </ng-container>
+        </div>
+        <div #page2 class="page">
+          <h2 class="heading">Experience</h2>
+          <ng-container *ngFor="let experience of experienceList">
+            <ng-container
+              *ngTemplateOutlet="
+                resumeTemplate;
+                context: { item: experience, icon: 'fa fa-user-graduate' }
+              "
+            ></ng-container>
+          </ng-container>
+        </div>
+        <div
+          #page3
+          class="page"
+          [@fadeInOut]="skillsAnimate ? 'show' : 'hide'"
+          appWindowScroll
+          (scrolledToBottom)="triggerSkillsAnimation($event)"
+        >
+          <h2 class="heading">Skills</h2>
+          <div class="row progress-circle mb-5">
+            <div
+              class="col-lg-4 mb-4"
+              *ngFor="let skill of skillsAnimate | slice: 0:3"
+            >
+              <div class="bg-white rounded-lg shadow p-4">
+                <h2 class="h5 font-weight-bold text-center mb-4">
+                  {{ skill.name }}
+                </h2>
+                <div class="progress-bar-container">
+                  <mat-progress-spinner
+                    [value]="skill.value$ | async"
+                  ></mat-progress-spinner>
+                  <div class="precentage">{{ skill.value$ | async }}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-md-6 progress-bar-box"
+              *ngFor="let skill of skillsAnimate | slice: 3"
+            >
+              <div class="progress-wrap">
+                <div class="d-flex justify-content-between">
+                  <h3>{{ skill.name }}</h3>
+                  <div class="precentage">{{ skill.value$ | async }}%</div>
+                </div>
+                <mat-progress-bar
+                  [value]="skill.value$ | async"
+                ></mat-progress-bar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #resumeTemplate let-item="item" let-icon="icon">
+  <div class="resume-wrap d-flex">
+    <div class="icon d-flex align-items-center justify-content-center">
+      <span class="{{ icon }}"></span>
+    </div>
+    <div class="text pl-3">
+      <span class="date">{{ item.date }}</span>
+      <h2>{{ item.title }}</h2>
+      <span *ngIf="item.subTitle" class="position">{{ item.subTitle }}</span>
+      <ul class="mt-2">
+        <li *ngFor="let paragraph of item.paragraphs">
+          {{ paragraph.value }}
+          <ul *ngIf="paragraph.paragraphs">
+            <li *ngFor="let subParagraph of paragraph.paragraphs">
+              {{ subParagraph.value }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ng-container *ngIf="item.projects">
+        <app-carousel
+          class="d-block col-lg-9 col-md-12"
+          [projects]="item.projects"
+        ></app-carousel>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

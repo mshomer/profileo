@@ -1,0 +1,43 @@
+<app-navigation [items]="navItems"></app-navigation>
+<ng-container #home>
+  <app-home
+    appWindowScroll
+    (scrolledToBottom)="about.triggerAnimation = $event"
+  ></app-home>
+</ng-container>
+<ng-container #about>
+  <app-about
+    [triggerAnimation]="about.triggerAnimation"
+    appWindowScroll
+    (scrolledToBottom)="resume.triggerAnimation = $event"
+  ></app-about>
+</ng-container>
+<ng-container #resume>
+  <app-resume
+    [triggerAnimation]="resume.triggerAnimation"
+    appWindowScroll
+    (scrolledToBottom)="projects.triggerAnimation = $event"
+  ></app-resume>
+</ng-container>
+<ng-container #projects>
+  <app-projects
+    [projects]="projectList"
+    [triggerAnimation]="projects.triggerAnimation"
+    appWindowScroll
+    (scrolledToBottom)="contact.triggerAnimation = $event"
+  ></app-projects>
+</ng-container>
+<ng-container #contact>
+  <app-contact
+    [triggerAnimation]="contact.triggerAnimation"
+    appWindowScroll
+    (scrolledToBottom)="footer.triggerAnimation = $event"
+  ></app-contact>
+</ng-container>
+<ng-container #footer>
+  <app-footer
+    [triggerAnimation]="contact.triggerAnimation"
+    [navItems]="navItems"
+    [projects]="projectList"
+  ></app-footer>
+</ng-container>
