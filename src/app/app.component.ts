@@ -21,8 +21,7 @@ export class AppComponent implements AfterViewInit {
     {
       name: 'Covid 19 App',
       imageUrl: '/assets/covid-19-app.png',
-      description: `
-      In this app, I created a COVID-19 Tracker/Stats Application. This app uses Angular with the addition of highcharts, Material UI, ngrx Store and many different modules.
+      description: `In this app, I created a COVID-19 Tracker/Stats Application. This app uses Angular with the addition of highcharts, Material UI, ngrx Store and many different modules.
       The cards displaying the statistics as well as ChartsThe will be fetched from a Live API data.
       I copied the UI and the idea from a youtube video "Build a COVID-19 Tracker Application - React JS Project"`,
       link: 'https://covid-19-tracker-b15ec.web.app/',
@@ -32,8 +31,7 @@ export class AppComponent implements AfterViewInit {
     {
       name: 'Wiki Store App',
       imageUrl: '/assets/wiki-store-app.jpg',
-      description: `
-      In this app, I created a Wiki Web Store Application. This app uses Angular with the addition of Ionic Framework.
+      description: `In this app, I created a Wiki Web Store Application. This app uses Angular with the addition of Ionic Framework.
       Wiki Store is a collections of plants and flowers that gives the user information how to take care of indoor and outdoor plants, getting them enough water and sunlight every day.
       You can search / filter and even take a picture of a specific plant and our 'magic' will find the correct plant for you.`,
       link: 'https://ionic-wiki-store-app.web.app/',
@@ -52,8 +50,7 @@ export class AppComponent implements AfterViewInit {
     {
       name: 'To-Do App',
       imageUrl: '/assets/todo-app.png',
-      description: `
-      This is a simaple RESTful API project with .Net Core 3.1 framework. I started by building a simaple to-do database driven application
+      description: `This is a simaple RESTful API project with .Net Core 3.1 framework. I started by building a simaple to-do database driven application
       using the ORM object relational mapper. It works by mapping the properties of a plain JavaScript object called model to an actual database table.
       I used migrations that helped me keep my schemas under version control.
       I built relationships for one-to-one, one-to-many, many-to-many.
@@ -64,13 +61,25 @@ export class AppComponent implements AfterViewInit {
     {
       name: 'MVC Garage Store',
       imageUrl: '/assets/mvc-garage-store.png',
-      description: `
-      This is a simaple MVC project for Garage Store of vehicles.
+      description: `This is a simaple MVC project for Garage Store of vehicles.
       In this project an anonymous user can view a collection of vehicles and decides if he would like to rent one, inorder to rent a vehicle the user first
       must to be logged in, by signing in with email and password or a Google accoount service.
       A signed in user can see is list of chosen vehicles in the Cart page and checkout/submit the order when he ready.
       `,
       github: 'https://github.com/mshomer/MVC-garage-store',
+    },
+
+    {
+      name: 'Invitaions App',
+      imageUrl: '/assets/invitation-app.png',
+      description: `Make special Invitation to Invite your friends and family for your special occasion.
+
+      This app created with Angular framework and firebase database.
+      `,
+      link: 'https://invitations-7e937.web.app/',
+      download:
+        'https://invitations-7e937.web.app/invitation/-M9N2dy8QZdhOQyp2VLv',
+      github: 'https://github.com/mshomer/invitation',
     },
   ];
 
